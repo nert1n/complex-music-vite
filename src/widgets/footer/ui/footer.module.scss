@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 50px;
+
+    a {
+        color: #317EC5;
+        text-decoration: underline;
+
+        &:hover {
+            color: #1c68af;
+        }
+    }
+}
