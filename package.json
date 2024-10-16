@@ -1,0 +1,87 @@
+{
+	"name": "complex-music-vite",
+	"private": true,
+	"version": "0.2.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview",
+		"lint": "pnpm lint:ts && pnpm lint:css",
+		"lint:fix": "pnpm lint:ts:fix && pnpm lint:css:fix",
+		"lint:ts": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"lint:ts:fix": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
+		"lint:css": "stylelint \"src/**/*.scss\"",
+		"lint:css:fix": "stylelint \"src/**/*.scss\" --fix --max-warnings 0",
+		"format": "prettier --config .prettierrc.yaml --write ."
+	},
+	"dependencies": {
+		"axios": "^1.7.7",
+		"formik": "^2.4.6",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-hook-form": "^7.53.0",
+		"react-router": "^6.26.2",
+		"react-router-dom": "^6.26.2",
+		"yup": "^1.4.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.16.6",
+		"@types/react": "^18.3.8",
+		"@types/react-dom": "^18.3.0",
+		"@types/react-helmet": "^6.1.11",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"@vitejs/plugin-legacy": "^5.4.2",
+		"@vitejs/plugin-react": "^4.3.1",
+		"eslint": "8.57.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"eslint-import-resolver-typescript": "^3.6.3",
+		"eslint-plugin-import": "^2.30.0",
+		"eslint-plugin-jsx-a11y": "^6.10.0",
+		"eslint-plugin-optimize-regex": "^1.2.1",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-promise": "^7.1.0",
+		"eslint-plugin-react": "^7.36.1",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"eslint-plugin-react-refresh": "^0.4.12",
+		"eslint-plugin-security": "^3.0.1",
+		"eslint-plugin-sonarjs": "^2.0.2",
+		"eslint-plugin-sort-destructure-keys": "^2.0.0",
+		"eslint-plugin-unicorn": "^55.0.0",
+		"husky": "^9.1.6",
+		"lint-staged": "^15.2.10",
+		"prettier": "^3.3.3",
+		"sass": "1.78.0",
+		"stylelint": "^16.9.0",
+		"stylelint-config-standard": "^36.0.1",
+		"stylelint-config-standard-scss": "^13.1.0",
+		"stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+		"stylelint-scss": "^6.7.0",
+		"typescript": "5.5.4",
+		"vite": "^5.4.7",
+		"vite-plugin-compression": "^0.5.1",
+		"vite-plugin-sitemap": "^0.7.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.ts": [
+			"eslint --cache --fix",
+			"git add"
+		],
+		"*.tsx": [
+			"eslint --cache --fix",
+			"git add"
+		],
+		"*.scss": [
+			"stylelint --fix",
+			"git add"
+		]
+	}
+}
