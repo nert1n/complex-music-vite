@@ -6,7 +6,7 @@ import { Sidebar } from "@widgets/sidebar";
 
 export const MainLayout = () => {
 	return (
-		<div>
+		<div className={"layout"}>
 			<Header />
 			<div className="app__holder">
 				<Sidebar />

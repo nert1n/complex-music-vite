@@ -4,7 +4,7 @@ export const Footer = () => {
 	return (
 		<footer className={styles.footer}>
 			<p>
-				Site created by
+				Site created by&nbsp;
 				<a href="https://github.com/nert1n" rel="noreferrer" target="_blank">
 					nert1n
 				</a>

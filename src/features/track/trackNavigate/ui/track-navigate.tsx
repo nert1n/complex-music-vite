@@ -5,6 +5,14 @@ import { isActive, isPlay } from "@app/store/slices/tracks-slice.ts";
 import { RootState } from "@app/store/store.ts";
 import { ITrackNavigate } from "@features/track/trackNavigate/model/types.ts";
 import { useCryptoRandom } from "@shared/hooks/use-crypto-random.ts";
+import {
+	ArrowBackIcon,
+	ArrowNextIcon,
+	PauseIcon,
+	PlayIcon,
+	RepeatIcon,
+	ShuffleIcon,
+} from "@shared/ui/icons";
 
 import styles from "./track-navigate.module.scss";
 
@@ -18,7 +26,6 @@ export const TrackNavigate = ({
 	const playTrack = isTracks.playTrack;
 	const audio = audioRef.current;
 
-	const [playImg, setPlayImg] = useState("play");
 	const [isRepeating, setIsRepeating] = useState(false);
 
 	const randomNumber = useCryptoRandom({ min: 1, max: isTracks.tracks.length });
@@ -36,12 +43,8 @@ export const TrackNavigate = ({
 			if (audio !== null) {
 				audio.play();
 			}
-			setPlayImg("pause");
-		} else {
-			if (audio !== null) {
-				audio.pause();
-			}
-			setPlayImg("play");
+		} else if (audio !== null) {
+			audio.pause();
 		}
 	}, [isTracks.playTrack]);
 
@@ -82,24 +85,15 @@ export const TrackNavigate = ({
 	return (
 		<div className={styles.navigate}>
 			<button className={styles.navigate__shuffle} onClick={shuffleToggle}>
-				<img
-					alt="Shuffle"
-					className={styles.navigate__shuffle_img}
-					src={`/img/icons/${isShuffle ? "shuffle-active" : "shuffle"}.svg`}
-				/>
+				<ShuffleIcon color={isShuffle ? "#1F77DF" : "black"} />
 			</button>
-
 			<div className={styles.navigate__holder}>
 				{isTracks.activeTrack > 1 ? (
 					<button
 						className={styles.navigate__arrow}
 						name="back"
 						onClick={backTrack}>
-						<img
-							alt="Back"
-							className={styles.navigate__arrow_img}
-							src="/img/icons/arrows/back-arrow.svg"
-						/>
+						<ArrowBackIcon />
 					</button>
 				) : (
 					<button
@@ -108,30 +102,15 @@ export const TrackNavigate = ({
 						name="back"
 						onClick={backTrack}></button>
 				)}
-
 				<button className={styles.navigate__play} onClick={togglePlay}>
-					<img
-						alt={playTrack ? "Pause" : "Play"}
-						className={styles.navigate__play_img}
-						src={`img/icons/play/${playImg}.svg`}
-					/>
+					{playTrack ? <PauseIcon /> : <PlayIcon />}
 				</button>
-
 				<button className={styles.navigate__arrow} onClick={nextTrack}>
-					<img
-						alt="Next"
-						className={styles.navigate__arrow_img}
-						src="/img/icons/arrows/next-arrow.svg"
-					/>
+					<ArrowNextIcon color={"black"} />
 				</button>
 			</div>
-
 			<button className={styles.navigate__repeat} onClick={repeatToggle}>
-				<img
-					alt="Repeat"
-					className={styles.navigate__repeat_img}
-					src={`/img/icons/${isRepeating ? "repeat-active" : "repeat"}.svg`}
-				/>
+				<RepeatIcon color={isRepeating ? "#1F77DF" : "black"} />
 			</button>
 		</div>
 	);

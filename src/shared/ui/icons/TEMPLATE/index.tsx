@@ -18,5 +18,5 @@ export function Icon({
 	// height = DEFAULT_HEIGHT,
 	// color = DEFAULT_COLOR,
 }: IIcon) {
-	return <div className={className}></div>;
+	return <p className={className}></p>;
 }

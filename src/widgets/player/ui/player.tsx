@@ -63,44 +63,35 @@ export const Player = () => {
 
 	return (
 		<div className={styles.player}>
-			<div className="container">
-				<div className={styles.player__holder}>
-					{/* eslint-disable-next-line jsx-a11y/media-has-caption,sonarjs/media-has-caption */}
-					<audio
-						ref={audioRef}
-						autoPlay={true}
-						loop={false}
-						src={currentTrack.src}
-						onAbort={() => {
-							dispatch(isPlay(true));
-						}}
-						onEnded={changeTrack}
-						onPause={() => {
-							dispatch(isPlay(false));
-						}}
-						onPlay={() => {
-							dispatch(isPlay(true));
-						}}
-						onTimeUpdate={handleTimeUpdate}>
-						<track kind="metadata" />
-					</audio>
-
-					<TrackInfo />
-					<div>
-						{audioRef.current != null && (
-							<>
-								<TrackNavigate
-									audioRef={audioRef}
-									isShuffle={isShuffle}
-									shuffleChange={shuffleChange}
-								/>
-								<TrackTimeLine audioRef={audioRef} currentTime={currentTime} />
-							</>
-						)}
-					</div>
-					<TrackExtra audioRef={audioRef} />
-				</div>
+			{/* eslint-disable-next-line jsx-a11y/media-has-caption,sonarjs/media-has-caption */}
+			<audio
+				ref={audioRef}
+				autoPlay={true}
+				loop={false}
+				src={currentTrack.src}
+				onAbort={() => {
+					dispatch(isPlay(true));
+				}}
+				onEnded={changeTrack}
+				onPause={() => {
+					dispatch(isPlay(false));
+				}}
+				onPlay={() => {
+					dispatch(isPlay(true));
+				}}
+				onTimeUpdate={handleTimeUpdate}>
+				<track kind="metadata" />
+			</audio>
+			<TrackInfo />
+			<div>
+				<TrackNavigate
+					audioRef={audioRef}
+					isShuffle={isShuffle}
+					shuffleChange={shuffleChange}
+				/>
+				<TrackTimeLine audioRef={audioRef} currentTime={currentTime} />
 			</div>
+			<TrackExtra audioRef={audioRef} />
 		</div>
 	);
 };
