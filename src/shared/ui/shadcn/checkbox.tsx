@@ -8,7 +8,7 @@ export interface CheckboxProps
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 	({ className, indeterminate, ...props }, ref) => {
-		const innerRef = React.useRef<HTMLInputElement>(null);
+		const innerRef = React.useRef<HTMLInputElement | null>(null) as React.MutableRefObject<HTMLInputElement | null>;
 
 		React.useEffect(() => {
 			if (innerRef.current) {
