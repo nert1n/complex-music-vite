@@ -1,11 +1,13 @@
-import styles from "./footer.module.scss";
-
 export const Footer = () => {
 	return (
-		<footer className={styles.footer}>
+		<footer className="mt-12 flex items-center justify-between text-base">
 			<p>
 				Site created by&nbsp;
-				<a href="https://github.com/nert1n" rel="noreferrer" target="_blank">
+				<a
+					className="text-[#317ec5] underline hover:text-[#1c68af]"
+					href="https://github.com/nert1n"
+					rel="noreferrer"
+					target="_blank">
 					nert1n
 				</a>
 			</p>

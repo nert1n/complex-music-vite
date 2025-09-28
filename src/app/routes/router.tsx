@@ -1,5 +1,6 @@
 import Layout from "@app/layout";
-import { MainLayout } from "@app/layout/mainLayout";
+import { AuthLayout } from "@app/layout/auth-layout";
+import { MainLayout } from "@app/layout/main-layout";
 import { MainPage } from "@pages/main";
 import { MistakePage } from "@pages/mistake";
 import { NotFoundPage } from "@pages/not-found";
@@ -14,12 +15,8 @@ export const routes = [
 		errorElement: <MistakePage />,
 		children: [
 			{
-				element: <MainLayout />,
+				element: <AuthLayout />,
 				children: [
-					{
-						path: "",
-						element: <MainPage />,
-					},
 					{
 						path: "sign-in",
 						element: <SignInPage />,
@@ -27,6 +24,15 @@ export const routes = [
 					{
 						path: "sign-up",
 						element: <SignUpPage />,
+					},
+				],
+			},
+			{
+				element: <MainLayout />,
+				children: [
+					{
+						path: "",
+						element: <MainPage />,
 					},
 					{
 						path: "profile",

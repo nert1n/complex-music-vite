@@ -14,8 +14,6 @@ import {
 	ShuffleIcon,
 } from "@shared/ui/icons";
 
-import styles from "./track-navigate.module.scss";
-
 export const TrackNavigate = ({
 	audioRef,
 	isShuffle,
@@ -83,35 +81,30 @@ export const TrackNavigate = ({
 	};
 
 	return (
-		<div className={styles.navigate}>
-			<button className={styles.navigate__shuffle} onClick={shuffleToggle}>
+		<div className="flex items-center justify-center">
+			<button className="mr-5" onClick={shuffleToggle}>
 				<ShuffleIcon color={isShuffle ? "#1F77DF" : "black"} />
 			</button>
-			<div className={styles.navigate__holder}>
+			<div className="flex items-center justify-center">
 				{isTracks.activeTrack > 1 ? (
-					<button
-						className={styles.navigate__arrow}
-						name="back"
-						onClick={backTrack}
-					>
+					<button className="w-[20px]" name="back" onClick={backTrack}>
 						<ArrowBackIcon />
 					</button>
 				) : (
 					<button
 						disabled
-						className={styles.navigate__arrow}
+						className="w-[20px]"
 						name="back"
-						onClick={backTrack}
-					></button>
+						onClick={backTrack}></button>
 				)}
-				<button className={styles.navigate__play} onClick={togglePlay}>
+				<button className="mx-5" onClick={togglePlay}>
 					{playTrack ? <PauseIcon /> : <PlayIcon />}
 				</button>
-				<button className={styles.navigate__arrow} onClick={nextTrack}>
+				<button className="w-[20px]" onClick={nextTrack}>
 					<ArrowNextIcon color={"black"} />
 				</button>
 			</div>
-			<button className={styles.navigate__repeat} onClick={repeatToggle}>
+			<button className="ml-5" onClick={repeatToggle}>
 				<RepeatIcon color={isRepeating ? "#1F77DF" : "black"} />
 			</button>
 		</div>

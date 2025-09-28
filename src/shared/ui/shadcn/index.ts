@@ -1,4 +1,4 @@
-export * from "./lib/utils";
+export * from "@shared/lib/utils";
 export * from "./button";
 export * from "./badge";
 export * from "./card";
@@ -14,3 +14,4 @@ export * from "./progress";
 export * from "./table";
 export * from "./tabs";
 export * from "./avatar";
+export * from "./loader";

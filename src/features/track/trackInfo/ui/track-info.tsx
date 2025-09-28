@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { isLiked } from "@app/store/slices/tracks-slice.ts";
 import { RootState } from "@app/store/store.ts";
 
-import styles from "./track-info.module.scss";
-
 export const TrackInfo = () => {
 	const isTracks = useSelector((state: RootState) => state.tracks);
 	const dispatch = useDispatch();
@@ -16,24 +14,48 @@ export const TrackInfo = () => {
 	};
 
 	return (
-		<div className={styles.track}>
+		<div className="flex w-[25vw] items-center">
 			{isTracks.activeTrack !== 0 && (
 				<>
-					<Link className={styles.track__img} to={currentTrack.name}>
-						<img alt={"Photography track"} src={currentTrack.img} />
+					<Link
+						className="inline-flex items-center justify-center"
+						to={currentTrack.name}>
+						<img
+							alt={"Photography track"}
+							className="h-[55px] w-[55px] rounded-[5px] shadow"
+							src={currentTrack.img}
+						/>
 					</Link>
-					<div className={styles.track__info}>
-						<Link className={styles.track__name} to={currentTrack.name}>
+					<div className="ml-[20px]">
+						<Link
+							className="text-[18px] font-bold text-black"
+							style={{
+								display: "-webkit-box",
+								WebkitLineClamp: 2,
+								WebkitBoxOrient: "vertical" as const,
+								overflow: "hidden",
+								textOverflow: "ellipsis",
+							}}
+							to={currentTrack.name}>
 							{currentTrack.name}
 						</Link>
-						<Link className={styles.track__creator} to={currentTrack.creators}>
+						<Link
+							className="text-[14px] leading-[18px] text-[#222] transition hover:underline"
+							to={currentTrack.creators}>
 							{currentTrack.creators}
 						</Link>
 					</div>
-					<button className={styles.track__like} onClick={likeChange}>
-						<div
-							className={`${styles.track__like_img} ${currentTrack.liked ? styles.active : ""}`}
-						></div>
+					<button
+						className="relative ml-[10px] h-[30px] w-[30px]"
+						onClick={likeChange}>
+						<span
+							className={
+								"relative before:absolute before:top-[-13px] before:left-[15px] before:h-[26px] before:w-[15px] before:origin-[0_100%] before:rotate-[-45deg] before:rounded-[64px_64px_0_0] before:content-[''] after:absolute after:top-[-13px] after:left-0 after:h-[26px] after:w-[15px] after:origin-[100%_100%] after:rotate-[45deg] after:rounded-[64px_64px_0_0] after:content-[''] " +
+								(currentTrack.liked
+									? "before:bg-[rgb(255,0,0)] after:bg-[rgb(255,0,0)]"
+									: "before:bg-[rgb(92,92,92)] after:bg-[rgb(92,92,92)]")
+							}
+						/>
 					</button>
 				</>
 			)}

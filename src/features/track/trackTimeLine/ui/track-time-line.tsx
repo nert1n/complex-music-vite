@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 
 import { ITrackTimeLine } from "@features/track/trackTimeLine/model/types.ts";
 
-import styles from "./track-time-line.module.scss";
-
 export const TrackTimeLine = ({ audioRef, currentTime }: ITrackTimeLine) => {
 	const [currTime, setCurrTime] = useState(0);
 	const audio = audioRef.current;
@@ -32,8 +30,8 @@ export const TrackTimeLine = ({ audioRef, currentTime }: ITrackTimeLine) => {
 	}, [currentTime]);
 
 	return (
-		<div className={styles.time}>
-			<p className={styles.time__start}>
+		<div className="flex items-center justify-center">
+			<p className="text-[12px]">
 				{Math.floor(currTime / 60)}:
 				{Math.floor(currTime % 60) <= 9
 					? `0${Math.floor(currTime % 60)}`
@@ -41,14 +39,24 @@ export const TrackTimeLine = ({ audioRef, currentTime }: ITrackTimeLine) => {
 			</p>
 			{audio && (
 				<Slider
-					className={styles.time__line}
+					className="mx-2 h-[10px] w-[400px]"
+					handleStyle={{
+						width: 14,
+						height: 14,
+						marginTop: -5,
+						borderRadius: 9999,
+						backgroundColor: "#8b8b8b",
+						border: "2px solid #727272",
+					}}
 					max={Math.round(audio.duration)}
 					min={0}
+					railStyle={{ height: 5, backgroundColor: "#d3d3d3", borderRadius: 6 }}
+					trackStyle={{ height: 5, backgroundColor: "#777", borderRadius: 6 }}
 					value={currTime}
 					onChange={value => handleSeek(value)}
 				/>
 			)}
-			<p className={styles.time__end}>{audio && formatTime(audio.duration)}</p>
+			<p className="text-[12px]">{audio && formatTime(audio.duration)}</p>
 		</div>
 	);
 };

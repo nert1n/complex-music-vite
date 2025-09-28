@@ -1,11 +1,12 @@
 import * as React from "react";
-import { cn } from "./lib/utils";
+
+import { cn } from "@shared/lib/utils";
 
 export interface SelectProps
 	extends React.SelectHTMLAttributes<HTMLSelectElement> {}
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-	({ className, children, ...props }, ref) => {
+	({ children, className, ...props }, ref) => {
 		return (
 			<select
 				ref={ref}
@@ -17,8 +18,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 					"[background-position:calc(100%-20px)_50%,calc(100%-15px)_50%] [background-size:5px_5px,5px_5px] bg-no-repeat",
 					className
 				)}
-				{...props}
-			>
+				{...props}>
 				{children}
 			</select>
 		);

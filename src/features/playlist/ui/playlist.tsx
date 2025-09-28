@@ -22,15 +22,26 @@ export const Playlist = ({ playlist }: IPlaylist) => {
 	};
 
 	return (
-		<button className="playlist" type={"button"} onClick={handlePlaylistChange}>
-			<button className="playlist__button">
-				<img alt="Img" className="playlist__img" src={playlist.img} />
-			</button>
-			<div className="playlist__holder">
-				<button className="playlist__name" type={"button"}>
+		<button
+			className="flex cursor-pointer items-center justify-start rounded-[5px] bg-transparent p-[5px] transition-all duration-200 hover:bg-[#f1f1f1]"
+			type="button"
+			onClick={handlePlaylistChange}>
+			<span className="inline-flex h-[45px] w-[45px] items-center justify-center rounded-[5px] bg-[#d9d9d9] overflow-hidden">
+				<img
+					alt="Img"
+					className="h-[45px] w-[45px] rounded-[5px] object-cover"
+					src={playlist.img}
+				/>
+			</span>
+			<div className="ml-[10px]">
+				<button
+					className="flex items-center justify-start text-base truncate"
+					type="button">
 					{playlist.name}
 				</button>
-				<Link className="playlist__subinfo" to={playlist.creators}>
+				<Link
+					className="flex items-center justify-start text-xs text-[#1f1f1f] truncate transition-all duration-200 hover:underline"
+					to={playlist.creators}>
 					{playlist.creators}
 				</Link>
 			</div>

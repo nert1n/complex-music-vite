@@ -9,29 +9,23 @@ export const Main = () => {
 	const tracks = useSelector((state: RootState) => state.tracks.tracks);
 
 	return (
-		<main className="main">
-			<div className="container">
-				<div className="main__holder">
-					<div className="tracks">
-						<div className="tracks__holder">
-							<div className="tracks__playlists">
-								<div className="tracks__info">
-									<h3 className="tracks__title">For me</h3>
-									<Link className="tracks__button" to={"/tracks-for-me"}>
-										See more
-									</Link>
-								</div>
-								<div className="tracks__cards">
-									{tracks.slice(1, 5).map(el => (
-										<TracksCard key={el.id} tracks={el} />
-									))}
-								</div>
-							</div>
-						</div>
+		<div className="h-full w-2/3 mx-auto px-2 overflow-y-scroll rounded-[10px] bg-white p-[30px] shadow">
+			<div>
+				<div>
+					<div className="mb-5 flex items-center justify-between">
+						<h3 className="text-xl">For me</h3>
+						<Link className="text-black text-xl" to={"/tracks-for-me"}>
+							See more
+						</Link>
 					</div>
-					<Footer />
+					<div className="flex items-center justify-between gap-5">
+						{tracks.slice(1, 5).map(el => (
+							<TracksCard key={el.id} tracks={el} />
+						))}
+					</div>
 				</div>
 			</div>
-		</main>
+			<Footer />
+		</div>
 	);
 };

@@ -9,8 +9,6 @@ import { TrackNavigate } from "@features/track/trackNavigate";
 import { TrackTimeLine } from "@features/track/trackTimeLine/ui/track-time-line.tsx";
 import { useCryptoRandom } from "@shared/hooks/use-crypto-random.ts";
 
-import styles from "./player.module.scss";
-
 export const Player = () => {
 	const isTracks = useSelector((state: RootState) => state.tracks);
 	const currentTrack = isTracks.tracks[isTracks.activeTrack];
@@ -62,7 +60,7 @@ export const Player = () => {
 	};
 
 	return (
-		<div className={styles.player}>
+		<div className="flex h-[84px] w-full items-center justify-between rounded-xl bg-white p-4">
 			{/* eslint-disable-next-line jsx-a11y/media-has-caption,sonarjs/media-has-caption */}
 			<audio
 				ref={audioRef}
@@ -79,12 +77,11 @@ export const Player = () => {
 				onPlay={() => {
 					dispatch(isPlay(true));
 				}}
-				onTimeUpdate={handleTimeUpdate}
-			>
+				onTimeUpdate={handleTimeUpdate}>
 				<track kind="metadata" />
 			</audio>
 			<TrackInfo />
-			<div>
+			<div className="w-[60%]">
 				<TrackNavigate
 					audioRef={audioRef}
 					isShuffle={isShuffle}

@@ -2,9 +2,7 @@ import { useSelector } from "react-redux";
 
 import { RootState } from "@app/store/store.ts";
 import { Playlist } from "@features/playlist";
-import { InputSearch } from "@shared/ui/components";
-
-import styles from "./sidebar.module.scss";
+import { InputSearch } from "@shared/ui/shadcn/input-search.tsx";
 
 export const Sidebar = () => {
 	const playlists = useSelector(
@@ -12,20 +10,18 @@ export const Sidebar = () => {
 	);
 
 	return (
-		<div className={styles.sidebar}>
-			<div className="container">
-				<div className={styles.sidebar__holder}>
-					<div className={styles.sidebar__title}>
-						<p className={styles.sidebar__name}>Playlists</p>
-						<button className={styles.sidebar__button}>+</button>
-					</div>
-					<InputSearch />
-					<div className={styles.sidebar__playlists}>
-						{playlists.map(playlist => (
-							<Playlist key={playlist.id} playlist={playlist} />
-						))}
-					</div>
-				</div>
+		<div className="h-full w-1/3 rounded-xl bg-white p-4 shadow">
+			<div className="mb-4 flex items-center justify-between">
+				<p className="text-base font-semibold">Playlists</p>
+				<button className="text-sm" type="button">
+					+
+				</button>
+			</div>
+			<InputSearch />
+			<div className="overflow-y-scroll">
+				{playlists.map(playlist => (
+					<Playlist key={playlist.id} playlist={playlist} />
+				))}
 			</div>
 		</div>
 	);
