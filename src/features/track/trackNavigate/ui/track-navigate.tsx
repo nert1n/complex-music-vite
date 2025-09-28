@@ -82,29 +82,60 @@ export const TrackNavigate = ({
 
 	return (
 		<div className="flex items-center justify-center">
-			<button className="mr-5" onClick={shuffleToggle}>
+			<button
+				aria-label={`Shuffle: ${isShuffle ? "On" : "Off"}`}
+				title={`Shuffle: ${isShuffle ? "On" : "Off"}`}
+				className="mr-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-gray-100 dark:active:bg-neutral-800/90"
+				onClick={shuffleToggle}
+			>
 				<ShuffleIcon color={isShuffle ? "#1F77DF" : "black"} />
 			</button>
 			<div className="flex items-center justify-center">
 				{isTracks.activeTrack > 1 ? (
-					<button className="w-[20px]" name="back" onClick={backTrack}>
+					<button
+						aria-label="Previous track"
+						title="Previous track"
+						className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-gray-100 dark:active:bg-neutral-800/90"
+						name="back"
+						onClick={backTrack}
+					>
 						<ArrowBackIcon />
 					</button>
 				) : (
 					<button
+						aria-label="Previous track"
+						title="Previous track"
 						disabled
-						className="w-[20px]"
+						className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white opacity-50 shadow-sm transition-colors focus:outline-none"
 						name="back"
-						onClick={backTrack}></button>
+						onClick={backTrack}
+					>
+						<ArrowBackIcon />
+					</button>
 				)}
-				<button className="mx-5" onClick={togglePlay}>
+				<button
+					aria-label={playTrack ? "Pause" : "Play"}
+					title={playTrack ? "Pause" : "Play"}
+					className="mx-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-gray-100 dark:active:bg-neutral-800/90"
+					onClick={togglePlay}
+				>
 					{playTrack ? <PauseIcon /> : <PlayIcon />}
 				</button>
-				<button className="w-[20px]" onClick={nextTrack}>
+				<button
+					aria-label="Next track"
+					title="Next track"
+					className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-gray-100 dark:active:bg-neutral-800/90"
+					onClick={nextTrack}
+				>
 					<ArrowNextIcon color={"black"} />
 				</button>
 			</div>
-			<button className="ml-5" onClick={repeatToggle}>
+			<button
+				aria-label={`Repeat: ${isRepeating ? "On" : "Off"}`}
+				title={`Repeat: ${isRepeating ? "On" : "Off"}`}
+				className="ml-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-gray-100 dark:active:bg-neutral-800/90"
+				onClick={repeatToggle}
+			>
 				<RepeatIcon color={isRepeating ? "#1F77DF" : "black"} />
 			</button>
 		</div>

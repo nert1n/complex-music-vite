@@ -23,11 +23,13 @@ export function SunIcon({
 				version="1.0"
 				viewBox="0 0 256.000000 256.000000"
 				width={width}
-				xmlns="http://www.w3.org/2000/svg">
+				xmlns="http://www.w3.org/2000/svg"
+			>
 				<g
 					fill={color}
 					stroke="none"
-					transform="translate(0.000000,256.000000) scale(0.100000,-0.100000)">
+					transform="translate(0.000000,256.000000) scale(0.100000,-0.100000)"
+				>
 					<path
 						d="M1194 2537 c-2 -7 -3 -107 -2 -222 l3 -210 83 -3 82 -3 0 226 0 225
 -80 0 c-56 0 -82 -4 -86 -13z"

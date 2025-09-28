@@ -39,19 +39,10 @@ export const TrackTimeLine = ({ audioRef, currentTime }: ITrackTimeLine) => {
 			</p>
 			{audio && (
 				<Slider
-					className="mx-2 h-[10px] w-[400px]"
-					handleStyle={{
-						width: 14,
-						height: 14,
-						marginTop: -5,
-						borderRadius: 9999,
-						backgroundColor: "#8b8b8b",
-						border: "2px solid #727272",
-					}}
+					aria-label="Track progress"
+					className="mx-2 h-[14px] w-[400px]"
 					max={Math.round(audio.duration)}
 					min={0}
-					railStyle={{ height: 5, backgroundColor: "#d3d3d3", borderRadius: 6 }}
-					trackStyle={{ height: 5, backgroundColor: "#777", borderRadius: 6 }}
 					value={currTime}
 					onChange={value => handleSeek(value)}
 				/>

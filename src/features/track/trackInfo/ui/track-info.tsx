@@ -19,7 +19,8 @@ export const TrackInfo = () => {
 				<>
 					<Link
 						className="inline-flex items-center justify-center"
-						to={currentTrack.name}>
+						to={currentTrack.name}
+					>
 						<img
 							alt={"Photography track"}
 							className="h-[55px] w-[55px] rounded-[5px] shadow"
@@ -36,18 +37,21 @@ export const TrackInfo = () => {
 								overflow: "hidden",
 								textOverflow: "ellipsis",
 							}}
-							to={currentTrack.name}>
+							to={currentTrack.name}
+						>
 							{currentTrack.name}
 						</Link>
 						<Link
 							className="text-[14px] leading-[18px] text-[#222] transition hover:underline"
-							to={currentTrack.creators}>
+							to={currentTrack.creators}
+						>
 							{currentTrack.creators}
 						</Link>
 					</div>
 					<button
 						className="relative ml-[10px] h-[30px] w-[30px]"
-						onClick={likeChange}>
+						onClick={likeChange}
+					>
 						<span
 							className={
 								"relative before:absolute before:top-[-13px] before:left-[15px] before:h-[26px] before:w-[15px] before:origin-[0_100%] before:rotate-[-45deg] before:rounded-[64px_64px_0_0] before:content-[''] after:absolute after:top-[-13px] after:left-0 after:h-[26px] after:w-[15px] after:origin-[100%_100%] after:rotate-[45deg] after:rounded-[64px_64px_0_0] after:content-[''] " +

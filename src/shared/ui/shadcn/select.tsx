@@ -18,7 +18,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 					"[background-position:calc(100%-20px)_50%,calc(100%-15px)_50%] [background-size:5px_5px,5px_5px] bg-no-repeat",
 					className
 				)}
-				{...props}>
+				{...props}
+			>
 				{children}
 			</select>
 		);

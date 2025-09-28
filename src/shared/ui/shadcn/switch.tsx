@@ -14,7 +14,8 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
 					className={cn(
 						"inline-block h-6 w-10 rounded-full bg-input transition",
 						"peer-checked:bg-primary"
-					)}>
+					)}
+				>
 					<span
 						className={cn(
 							"block h-5 w-5 translate-x-0.5 rounded-full bg-background shadow transition",

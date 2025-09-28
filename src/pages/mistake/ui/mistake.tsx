@@ -13,10 +13,11 @@ import {
 export const Mistake = () => {
 	const navigate = useNavigate();
 	const error: unknown = useRouteError();
+
 	return (
 		<div className="flex h-screen w-full items-center justify-center">
 			<div className="mx-auto w-full max-w-xl px-4 py-10 sm:py-16">
-				<Card className="bg-white">
+				<Card className="border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/70 shadow-sm backdrop-blur">
 					<CardHeader>
 						<CardTitle>Something went wrong</CardTitle>
 						<CardDescription>
@@ -36,7 +37,8 @@ export const Mistake = () => {
 							<Button
 								type="button"
 								variant="outline"
-								onClick={() => navigate(0)}>
+								onClick={() => navigate(0)}
+							>
 								Retry
 							</Button>
 						</div>

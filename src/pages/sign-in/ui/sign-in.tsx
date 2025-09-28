@@ -20,7 +20,7 @@ export const SignIn = () => {
 	return (
 		<div className="flex h-full w-full items-center justify-center">
 			<div className="mx-auto w-full max-w-md px-4 py-10">
-				<Card className="bg-white">
+				<Card className="border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/70 shadow-sm backdrop-blur">
 					<CardHeader className="text-center">
 						<img
 							alt="Complex music"

@@ -12,32 +12,37 @@ export const TracksCard = ({ tracks }: ITracksCard) => {
 	};
 
 	return (
-		<div className="w-[190px] h-[280px] rounded-[10px] bg-[#f1f1f1] p-[10px]">
+		<div className="w-[190px] h-[280px] rounded-xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/70 p-2.5 shadow-sm backdrop-blur">
 			<Link
-				className="mx-auto mb-[10px] flex h-[170px] w-[170px] items-center justify-center rounded-[5px]"
+				aria-label={`Open ${tracks.name}`}
+				title={tracks.name}
+				className="mx-auto mb-2.5 flex h-[170px] w-[170px] items-center justify-center overflow-hidden rounded-md border border-black/10 dark:border-white/10 bg-white/60 dark:bg-neutral-900/60"
 				to={"/"}
-				onClick={handleTrackChange}>
+				onClick={handleTrackChange}
+			>
 				<img
-					alt="#"
-					className="h-[170px] w-[170px] rounded-[5px] object-cover"
+					alt={tracks.name}
+					className="h-[170px] w-[170px] object-cover"
 					src={tracks.img}
 				/>
 			</Link>
-			<div>
+			<div className="px-0.5">
 				<h4
-					className="text-xl"
+					className="text-base font-semibold text-black dark:text-white"
 					style={{
 						display: "-webkit-box",
 						WebkitLineClamp: 2,
 						WebkitBoxOrient: "vertical" as const,
 						overflow: "hidden",
 						textOverflow: "ellipsis",
-					}}>
+					}}
+				>
 					{tracks.name}
 				</h4>
 				<Link
-					className="text-base text-[#1f1f1f] truncate"
-					to={tracks.creators}>
+					className="block truncate text-sm text-gray-600 underline-offset-2 hover:text-blue-700 hover:underline dark:text-gray-400"
+					to={tracks.creators}
+				>
 					{tracks.creators}
 				</Link>
 			</div>

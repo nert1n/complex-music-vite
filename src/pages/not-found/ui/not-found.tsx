@@ -14,7 +14,7 @@ export const NotFound = () => {
 	return (
 		<div className="flex h-screen w-full items-center justify-center">
 			<div className="mx-auto w-full max-w-xl px-4 py-10">
-				<Card className="bg-white">
+				<Card className="border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/70 shadow-sm backdrop-blur">
 					<CardHeader className="text-center">
 						<div className="mb-6 text-8xl font-extrabold leading-none tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400 select-none">
 							404
@@ -35,7 +35,8 @@ export const NotFound = () => {
 							<Button
 								type="button"
 								variant="outline"
-								onClick={() => navigate(-1)}>
+								onClick={() => navigate(-1)}
+							>
 								Back
 							</Button>
 						</div>
