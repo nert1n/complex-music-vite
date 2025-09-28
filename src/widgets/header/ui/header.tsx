@@ -23,7 +23,8 @@ export const Header = () => {
 					<ThemeSwitch />
 					<Link
 						className={styles.header__button}
-						to={isAuth ? "/profile" : "/login"}>
+						to={isAuth ? "/profile" : "/login"}
+					>
 						<ProfileIcon />
 					</Link>
 					<Button className="ml-2" variant="secondary">

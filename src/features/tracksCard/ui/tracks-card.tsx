@@ -16,7 +16,8 @@ export const TracksCard = ({ tracks }: ITracksCard) => {
 			<Link
 				className="tracks__card_button"
 				to={"/"}
-				onClick={handleTrackChange}>
+				onClick={handleTrackChange}
+			>
 				<img alt="#" className="tracks__card_img" src={tracks.img} />
 			</Link>
 			<div className="tracks__card_info">

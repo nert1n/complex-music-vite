@@ -92,7 +92,8 @@ export const TrackNavigate = ({
 					<button
 						className={styles.navigate__arrow}
 						name="back"
-						onClick={backTrack}>
+						onClick={backTrack}
+					>
 						<ArrowBackIcon />
 					</button>
 				) : (
@@ -100,7 +101,8 @@ export const TrackNavigate = ({
 						disabled
 						className={styles.navigate__arrow}
 						name="back"
-						onClick={backTrack}></button>
+						onClick={backTrack}
+					></button>
 				)}
 				<button className={styles.navigate__play} onClick={togglePlay}>
 					{playTrack ? <PauseIcon /> : <PlayIcon />}

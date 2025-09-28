@@ -32,7 +32,8 @@ export const TrackInfo = () => {
 					</div>
 					<button className={styles.track__like} onClick={likeChange}>
 						<div
-							className={`${styles.track__like_img} ${currentTrack.liked ? styles.active : ""}`}></div>
+							className={`${styles.track__like_img} ${currentTrack.liked ? styles.active : ""}`}
+						></div>
 					</button>
 				</>
 			)}

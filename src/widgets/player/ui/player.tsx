@@ -79,7 +79,8 @@ export const Player = () => {
 				onPlay={() => {
 					dispatch(isPlay(true));
 				}}
-				onTimeUpdate={handleTimeUpdate}>
+				onTimeUpdate={handleTimeUpdate}
+			>
 				<track kind="metadata" />
 			</audio>
 			<TrackInfo />
