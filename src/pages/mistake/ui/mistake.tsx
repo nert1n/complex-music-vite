@@ -13,7 +13,6 @@ import {
 export const Mistake = () => {
 	const navigate = useNavigate();
 	const error: unknown = useRouteError();
-
 	return (
 		<div className="flex h-screen w-full items-center justify-center">
 			<div className="mx-auto w-full max-w-xl px-4 py-10 sm:py-16">
