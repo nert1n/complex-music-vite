@@ -5,6 +5,7 @@ import { RootState } from "@app/store/store.ts";
 import { ThemeSwitch } from "@entities/themeSwitch";
 import { InputSearch } from "@shared/ui/components";
 import { ProfileIcon } from "@shared/ui/icons";
+import { Button } from "@shared/ui/shadcn/button";
 
 import styles from "./header.module.scss";
 
@@ -25,6 +26,9 @@ export const Header = () => {
 						to={isAuth ? "/profile" : "/login"}>
 						<ProfileIcon />
 					</Link>
+					<Button className="ml-2" variant="secondary">
+						Shadcn
+					</Button>
 				</div>
 			</nav>
 		</header>
